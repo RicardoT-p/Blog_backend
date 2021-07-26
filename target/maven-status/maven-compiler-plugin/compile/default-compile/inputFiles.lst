@@ -1,1 +1,4 @@
-/Users/ricardot/Documents/mine mine/blog_backend/blog_backend/src/main/java/com/example/blog_backend/BlogBackendApplication.java
+/Users/ricardot/Documents/mine mine/blog_backend/blog_backend/src/main/java/com/tpp/handler/ControllerExceptionHandler.java
+/Users/ricardot/Documents/mine mine/blog_backend/blog_backend/src/main/java/com/tpp/web/IndexController.java
+/Users/ricardot/Documents/mine mine/blog_backend/blog_backend/src/main/java/com/tpp/BlogBackendApplication.java
+/Users/ricardot/Documents/mine mine/blog_backend/blog_backend/src/main/java/com/tpp/NotFoundException.java
