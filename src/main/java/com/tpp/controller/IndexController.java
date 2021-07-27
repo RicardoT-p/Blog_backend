@@ -1,4 +1,4 @@
-package com.tpp.web;
+package com.tpp.controller;
 
 
 import org.springframework.stereotype.Controller;
