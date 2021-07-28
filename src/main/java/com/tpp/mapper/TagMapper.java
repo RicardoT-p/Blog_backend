@@ -1,8 +1,8 @@
 package com.tpp.mapper;
 
 
-import org.springframework.stereotype.Repository;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.tpp.entity.Tag;
 
-@Repository
-public interface TagMapper {
+public interface TagMapper extends BaseMapper<Tag> {
 }

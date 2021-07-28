@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -16,8 +17,9 @@ import java.util.List;
  * @Author: ptang
  * @Date: 2021/7/27 9:50 下午
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
-public class Blog {
+public class Blog extends Base{
     @TableId(value = "id",type = IdType.AUTO)
     private Long id;
     private String title;

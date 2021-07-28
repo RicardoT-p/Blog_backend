@@ -1,7 +1,9 @@
 package com.tpp.mapper;
 
 
-import org.springframework.stereotype.Repository;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.tpp.entity.Blog;
+
 
 /**
  * @ProjectName: blog_backend
@@ -10,7 +12,7 @@ import org.springframework.stereotype.Repository;
  * @Author: ptang
  * @Date: 2021/7/27 10:23 下午
  */
-@Repository
-public interface BlogMapper {
+
+public interface BlogMapper extends BaseMapper<Blog> {
 
 }

@@ -1,8 +1,8 @@
 package com.tpp.mapper;
 
 
-import org.springframework.stereotype.Repository;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.tpp.entity.Type;
 
-@Repository
-public interface TypeMapper {
+public interface TypeMapper extends BaseMapper<Type> {
 }

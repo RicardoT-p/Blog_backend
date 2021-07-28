@@ -1,8 +1,8 @@
 package com.tpp.mapper;
 
 
-import org.springframework.stereotype.Repository;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.tpp.entity.Comment;
 
-@Repository
-public interface CommentMapper {
+public interface CommentMapper extends BaseMapper<Comment> {
 }

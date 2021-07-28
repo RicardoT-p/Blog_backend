@@ -1,6 +1,7 @@
 package com.tpp.entity;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,8 +13,9 @@ import java.util.List;
  * @Author: ptang
  * @Date: 2021/7/27 9:57 下午
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
-public class Type {
+public class Type extends Base{
 
     private Long id;
 

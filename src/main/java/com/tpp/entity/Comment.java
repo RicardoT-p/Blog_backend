@@ -1,6 +1,7 @@
 package com.tpp.entity;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -13,9 +14,9 @@ import java.util.List;
  * @Author: ptang
  * @Date: 2021/7/27 9:56 下午
  */
-
+@EqualsAndHashCode(callSuper = true)
 @Data
-public class Comment {
+public class Comment extends Base{
 
     private Long id;
     private String nickname;
