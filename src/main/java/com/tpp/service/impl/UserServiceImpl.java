@@ -1,5 +1,6 @@
 package com.tpp.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.tpp.entity.User;
 import com.tpp.mapper.UserMapper;
@@ -12,6 +13,22 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     @Autowired
     UserMapper userMapper;
+
+    @Override
+    public boolean checkUsername(String username) {
+        LambdaQueryWrapper<User> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(User::getUsername,username);
+        User user = userMapper.selectOne(queryWrapper);
+        return user != null;
+    }
+
+    @Override
+    public User checkUser(String username, String password) {
+        LambdaQueryWrapper<User> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(User::getUsername,username)
+                    .eq(User::getPassword,password);
+        return userMapper.selectOne(queryWrapper);
+    }
 
     @Override
     public int addOne(User user) {
