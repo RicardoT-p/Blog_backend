@@ -1,5 +1,7 @@
 package com.tpp.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -17,18 +19,15 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class User extends Base{
-
+    @TableId(value = "id",type = IdType.AUTO)
     private Long id;
+    private Long blogId;
     private String nickname;
     private String username;
     private String password;
     private String email;
     private String avatar;
     private Integer type;
-
-    private Date createTime;
-
-    private Date updateTime;
-
-    private List<Blog> blogs = new ArrayList<>();
+//
+//    private List<Blog> blogs = new ArrayList<>();
 }

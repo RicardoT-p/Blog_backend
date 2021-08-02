@@ -1,5 +1,7 @@
 package com.tpp.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -17,23 +19,16 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class Comment extends Base{
-
+    @TableId(value = "id",type = IdType.AUTO)
     private Long id;
+    private Long blogId;
     private String nickname;
     private String email;
     private String content;
     private String avatar;
-
-    private Date createTime;
-
-
-    private Blog blog;
-
-
-    private List<Comment> replyComments = new ArrayList<>();
-
-
-    private Comment parentComment;
-
+    private Long parentCommentId;
+//    private Blog blog;
+//    private List<Comment> replyComments = new ArrayList<>();
+//    private Comment parentComment;
     private boolean adminComment;
 }
