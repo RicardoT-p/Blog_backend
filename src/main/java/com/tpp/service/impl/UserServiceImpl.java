@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.tpp.entity.User;
 import com.tpp.mapper.UserMapper;
 import com.tpp.service.UserService;
+import com.tpp.util.MD5Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,7 +27,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     public User checkUser(String username, String password) {
         LambdaQueryWrapper<User> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.eq(User::getUsername,username)
-                    .eq(User::getPassword,password);
+                    .eq(User::getPassword, MD5Utils.code(password));
         return userMapper.selectOne(queryWrapper);
     }
 
