@@ -38,8 +38,8 @@
              <button class="ui fluid large teal submit button">登   录</button>
            </div>
 
-           <div class="ui error mini message" th:unless="${#strings.isEmpty(message)}" th:text="${message}"> 用户名和密码错误</div>
-           <div class="ui mini  message" th:unless="${#strings.isEmpty(message)}" th:text="${message}">用户名和密码错误</div>
+           <div class="ui error mini message"></div>
+           <div class="ui mini negative message" th:unless="${#strings.isEmpty(message)}" th:text="${message}">用户名和密码错误</div>
 
          </form>
 

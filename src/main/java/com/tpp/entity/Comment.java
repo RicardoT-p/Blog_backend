@@ -6,6 +6,8 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -20,6 +22,7 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @TableName("comment")
+@Entity
 public class Comment extends Base{
     @TableId(value = "id",type = IdType.AUTO)
     private Long id;
@@ -33,4 +36,13 @@ public class Comment extends Base{
 //    private List<Comment> replyComments = new ArrayList<>();
 //    private Comment parentComment;
     private boolean adminComment;
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    @Id
+    public Long getId() {
+        return id;
+    }
 }

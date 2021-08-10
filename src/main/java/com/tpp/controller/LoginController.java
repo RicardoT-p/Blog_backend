@@ -44,11 +44,11 @@ public class LoginController {
                 return "admin/index";
             }else{
                 attributes.addFlashAttribute("message","用户名或者密码错误！");
-                return "redirect:";
+                return "redirect:/admin";
             }
         }else {
             attributes.addFlashAttribute("message","用户名不存在！");
-            return "redirect:";
+            return "redirect:/admin";
         }
     }
 

@@ -6,6 +6,9 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  * @ProjectName: blog_backend
  * @Package: com.tpp.entity
@@ -16,6 +19,7 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @TableName("blog")
+@Entity
 public class Blog extends Base{
 
     @TableId(value = "id",type = IdType.AUTO)
@@ -39,4 +43,13 @@ public class Blog extends Base{
 //    private List<Comment> comments = new ArrayList<>();
     private String tagIds;
     private String description;
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    @Id
+    public Long getId() {
+        return id;
+    }
 }

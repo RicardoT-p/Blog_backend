@@ -6,8 +6,10 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
 
 /**
  * @ProjectName: blog_backend
@@ -19,11 +21,24 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @TableName("type")
+@Entity
 public class Type extends Base{
     @TableId(value = "id",type = IdType.AUTO)
+    @Id
+    @GeneratedValue
     private Long id;
     private Long blogId;
+    @NotBlank(message = "分类名称不能为空")
     private String name;
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    @Id
+    public Long getId() {
+        return id;
+    }
 
 
 //    private List<Blog> blogs = new ArrayList<>();
