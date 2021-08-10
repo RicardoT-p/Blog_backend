@@ -8,6 +8,7 @@ import lombok.EqualsAndHashCode;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,6 +27,7 @@ public class Tag extends Base{
     @TableId(value = "id",type = IdType.AUTO)
     private Long id;
     private Long blogId;
+    @NotBlank(message = "分类名称不能为空")
     private String name;
 
     public void setId(Long id) {
