@@ -1,14 +1,14 @@
 package com.tpp.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.tpp.dao.BlogRepository;
 import com.tpp.entity.Blog;
-import com.tpp.entity.Type;
 import com.tpp.mapper.BlogMapper;
 import com.tpp.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,6 +18,16 @@ public class BlogServiceImpl extends ServiceImpl<BlogMapper, Blog> implements Bl
 
     @Autowired
     BlogMapper blogMapper;
+
+    @Autowired
+    BlogRepository blogRepository;
+
+    @Override
+    public Blog getByTitle(String title) {
+        LambdaQueryWrapper<Blog> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(Blog::getTitle,title);
+        return blogMapper.selectOne(queryWrapper);
+    }
 
     @Override
     public Blog getBlog(Long id) {
@@ -33,12 +43,8 @@ public class BlogServiceImpl extends ServiceImpl<BlogMapper, Blog> implements Bl
     }
 
     @Override
-    public List<Blog> listBlogByPage(int pageNum, int pageSize) {
-        IPage<Blog> page = new Page<>(pageNum, pageSize);
-        LambdaQueryWrapper<Blog> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.eq(Blog::getDeletionFlag, 0)
-                .orderByDesc(Blog::getCreationTime);
-        return blogMapper.selectPage(page,queryWrapper).getRecords();
+    public Page<Blog> listBlogByPage(Pageable pageable) {
+        return blogRepository.findAll(pageable);
     }
 
     @Override
@@ -52,7 +58,7 @@ public class BlogServiceImpl extends ServiceImpl<BlogMapper, Blog> implements Bl
     }
 
     @Override
-    public int deleteOne(String id) {
+    public int deleteOne(Long id) {
         return blogMapper.deleteById(id);
     }
 }
